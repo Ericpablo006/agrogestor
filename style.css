@@ -1,0 +1,263 @@
+/* =========================================================================
+   AgroGestor Pro — site institucional
+   Mesma identidade visual do sistema: "ficha de campo" — caderno de técnico
+   de ATER, papel kraft, tinta verde-mata, carimbo dourado.
+   ========================================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500..800&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap');
+
+:root{
+  --paper:#F3EEDC;
+  --paper-2:#FBF8EC;
+  --paper-3:#EDE6CC;
+  --ink:#212B1E;
+  --ink-soft:#5B6452;
+  --capim:#2F6B3A;
+  --capim-dark:#1E4A28;
+  --capim-deep:#102A18;
+  --sol:#E2A23B;
+  --sol-dark:#B97E22;
+  --terra:#9C5F35;
+  --terra-light:#DCC79B;
+  --linha:#DED2A8;
+  --alerta:#A8432B;
+  --ok:#2F6B3A;
+
+  --font-display:'Fraunces',Georgia,serif;
+  --font-body:'Inter',system-ui,-apple-system,Segoe UI,Arial,sans-serif;
+  --font-mono:'JetBrains Mono',ui-monospace,SFMono-Regular,Consolas,monospace;
+
+  --r-sm:9px; --r-md:14px; --r-lg:20px;
+  --stamp:3px 3px 0 rgba(16,42,24,.22);
+  --stamp-sm:2px 2px 0 rgba(16,42,24,.20);
+  --stamp-hover:5px 5px 0 rgba(16,42,24,.22);
+  --stamp-press:1px 1px 0 rgba(16,42,24,.22);
+}
+
+*{box-sizing:border-box}
+@media (prefers-reduced-motion:no-preference){ html{scroll-behavior:smooth} }
+::selection{background:var(--sol);color:var(--ink)}
+:focus-visible{outline:3px solid var(--sol);outline-offset:2px;border-radius:6px}
+
+body{
+  margin:0;
+  font-family:var(--font-body);
+  background:
+    radial-gradient(1100px 500px at 85% -10%, rgba(226,162,59,.10), transparent 60%),
+    var(--paper);
+  color:var(--ink);
+  line-height:1.55;
+}
+
+img{max-width:100%;display:block}
+a{color:inherit}
+.container{max-width:1120px;margin:0 auto;padding:0 24px}
+.muted{color:var(--ink-soft)}
+
+/* eyebrow / tag ------------------------------------------------------- */
+.tag{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:var(--font-mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--capim-dark);background:var(--paper-3);
+  border:1px solid var(--linha);border-radius:999px;padding:6px 14px;
+}
+
+/* headings -------------------------------------------------------------*/
+h1,h2,h3{font-family:var(--font-display);color:var(--capim-deep);margin:0 0 .4em;line-height:1.1}
+h1{font-size:clamp(2.2rem,4.4vw,3.6rem);font-weight:700}
+h2{font-size:clamp(1.6rem,3vw,2.3rem);font-weight:650}
+h3{font-size:1.15rem;font-weight:650}
+p{margin:0 0 1em}
+
+/* buttons ---------------------------------------------------------------*/
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  font-family:var(--font-body);font-weight:700;font-size:15px;
+  padding:13px 26px;border-radius:var(--r-md);border:2px solid var(--capim-deep);
+  background:var(--sol);color:var(--capim-deep);
+  box-shadow:var(--stamp);cursor:pointer;text-decoration:none;
+  transition:transform .12s ease, box-shadow .12s ease;
+}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:var(--stamp-hover)}
+.btn:active{transform:translate(1px,1px);box-shadow:var(--stamp-press)}
+.btn.primary{background:var(--capim);color:var(--paper-2);border-color:var(--capim-deep)}
+.btn.ghost{background:transparent;color:var(--capim-deep);box-shadow:none}
+.btn.ghost:hover{transform:none;background:var(--paper-3)}
+.btn.block{width:100%}
+
+/* =========================================================================
+   Nav
+   ========================================================================= */
+.nav{
+  position:sticky;top:0;z-index:20;
+  background:rgba(243,238,220,.9);backdrop-filter:blur(6px);
+  border-bottom:1px solid var(--linha);
+}
+.nav .container{display:flex;align-items:center;justify-content:space-between;padding:14px 24px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+.brand img{width:34px;height:34px;border-radius:8px}
+.brand strong{font-family:var(--font-display);font-size:18px;color:var(--capim-deep)}
+.nav-links{display:flex;align-items:center;gap:26px}
+.nav-links a:not(.btn){font-size:14px;font-weight:600;color:var(--ink-soft);text-decoration:none}
+.nav-links a:not(.btn):hover{color:var(--capim-dark)}
+.nav-login{font-size:13px;font-weight:700;color:var(--capim-dark);text-decoration:underline;text-underline-offset:3px}
+.nav .btn{padding:10px 18px;font-size:14px}
+
+/* =========================================================================
+   Hero
+   ========================================================================= */
+.hero{padding:76px 0 60px;position:relative;overflow:hidden}
+.hero .container{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center}
+.hero h1{margin-bottom:.5em}
+.hero-lead{font-size:18px;color:var(--ink-soft);max-width:46ch}
+.hero-ctas{display:flex;gap:14px;margin-top:30px;flex-wrap:wrap}
+.hero-stats{display:flex;gap:34px;margin-top:44px;flex-wrap:wrap}
+.hero-stats div strong{display:block;font-family:var(--font-display);font-size:28px;color:var(--capim-deep)}
+.hero-stats div span{font-size:13px;color:var(--ink-soft)}
+
+/* the "ficha" mock card, stands in for a hero image */
+.ficha-card{
+  background:var(--paper-2);border:1px solid var(--linha);border-radius:var(--r-lg);
+  box-shadow:var(--stamp-hover);padding:26px;position:relative;transform:rotate(-1.2deg);
+}
+.ficha-card::before{
+  content:'PRONAF';position:absolute;top:18px;right:18px;
+  font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:.08em;
+  color:var(--sol-dark);border:2px solid var(--sol-dark);border-radius:999px;
+  padding:4px 10px;transform:rotate(8deg);opacity:.85;
+}
+.ficha-card h3{font-family:var(--font-mono);font-size:13px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-soft);margin-bottom:14px}
+.ficha-row{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px dashed var(--linha);font-size:14px}
+.ficha-row:last-child{border-bottom:none}
+.ficha-row b{color:var(--capim-deep)}
+.ficha-progress{margin-top:16px;height:8px;border-radius:99px;background:var(--paper-3);overflow:hidden}
+.ficha-progress span{display:block;height:100%;width:78%;background:var(--capim)}
+
+/* =========================================================================
+   Section shells
+   ========================================================================= */
+section{padding:64px 0}
+.section-head{max-width:640px;margin:0 auto 40px;text-align:center}
+.section-head .tag{margin-bottom:16px}
+.alt{background:var(--paper-2);border-top:1px solid var(--linha);border-bottom:1px solid var(--linha)}
+
+/* =========================================================================
+   Recursos (features)
+   ========================================================================= */
+.features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.feature{
+  background:var(--paper-2);border:1px solid var(--linha);border-radius:var(--r-md);
+  padding:22px;box-shadow:var(--stamp-sm);
+}
+.feature span{font-size:26px}
+.feature h3{margin:12px 0 6px}
+.feature p{margin:0;font-size:14px;color:var(--ink-soft)}
+
+/* =========================================================================
+   Como funciona
+   ========================================================================= */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;counter-reset:step}
+.step{position:relative;padding-left:52px}
+.step::before{
+  counter-increment:step;content:counter(step);
+  position:absolute;left:0;top:0;width:38px;height:38px;border-radius:50%;
+  background:var(--capim-deep);color:var(--paper-2);font-family:var(--font-mono);font-weight:700;
+  display:flex;align-items:center;justify-content:center;
+}
+.step h3{margin-bottom:6px}
+.step p{font-size:14px;color:var(--ink-soft);margin:0}
+
+/* =========================================================================
+   Planos
+   ========================================================================= */
+.plans{display:grid;grid-template-columns:repeat(2,1fr);gap:28px;max-width:820px;margin:0 auto}
+.plan{
+  background:var(--paper-2);border:1px solid var(--linha);border-radius:var(--r-lg);
+  padding:32px;box-shadow:var(--stamp);position:relative;display:flex;flex-direction:column;
+}
+.plan.pro{border-color:var(--sol-dark)}
+.plan-badge{
+  position:absolute;top:-14px;right:24px;background:var(--sol);color:var(--capim-deep);
+  font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;
+  padding:6px 12px;border-radius:999px;border:2px solid var(--capim-deep);box-shadow:var(--stamp-sm);
+}
+.plan h3{font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.05em;font-size:14px;color:var(--ink-soft);margin-bottom:6px}
+.plan .price{font-family:var(--font-display);font-size:42px;color:var(--capim-deep);margin-bottom:4px}
+.plan .price small{font-family:var(--font-body);font-size:14px;font-weight:600;color:var(--ink-soft)}
+.plan .plan-desc{font-size:14px;color:var(--ink-soft);margin-bottom:22px}
+.plan ul{list-style:none;margin:0 0 26px;padding:0;flex:1}
+.plan li{display:flex;gap:10px;font-size:14px;padding:8px 0;border-bottom:1px dashed var(--linha)}
+.plan li:last-child{border-bottom:none}
+.plan li::before{content:'✓';color:var(--capim);font-weight:800}
+
+/* =========================================================================
+   FAQ
+   ========================================================================= */
+.faq{max-width:720px;margin:0 auto;display:grid;gap:12px}
+.faq details{
+  background:var(--paper-2);border:1px solid var(--linha);border-radius:var(--r-md);padding:18px 22px;
+}
+.faq summary{font-weight:700;cursor:pointer;color:var(--capim-deep);list-style:none;display:flex;justify-content:space-between;gap:12px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:'+';font-size:20px;color:var(--sol-dark)}
+.faq details[open] summary::after{content:'–'}
+.faq p{margin:12px 0 0;font-size:14px;color:var(--ink-soft)}
+
+/* =========================================================================
+   CTA final
+   ========================================================================= */
+.cta-final{text-align:center}
+.cta-final .container{
+  background:var(--capim-deep);color:var(--paper-2);border-radius:var(--r-lg);
+  padding:56px 40px;
+}
+.cta-final h2{color:var(--paper-2)}
+.cta-final p{color:#C9D6C6;max-width:52ch;margin:0 auto 26px}
+
+/* =========================================================================
+   Footer
+   ========================================================================= */
+footer.site{padding:40px 0;border-top:1px solid var(--linha)}
+footer.site .container{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+footer.site .brand strong{font-size:16px}
+footer.site small{color:var(--ink-soft);font-size:13px}
+.foot-links{display:flex;gap:20px}
+.foot-links a{font-size:13px;color:var(--ink-soft);text-decoration:none}
+.foot-links a:hover{color:var(--capim-dark)}
+
+/* =========================================================================
+   Página de retorno (sucesso / pendente / erro)
+   ========================================================================= */
+.status-screen{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px}
+.status-card{
+  max-width:480px;width:100%;text-align:center;background:var(--paper-2);
+  border:1px solid var(--linha);border-radius:var(--r-lg);box-shadow:var(--stamp-hover);
+  padding:48px 36px;
+}
+.status-card .stamp-icon{
+  width:74px;height:74px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  margin:0 auto 20px;font-size:32px;border:3px solid var(--capim-deep);
+}
+.status-card.ok .stamp-icon{background:var(--capim);color:var(--paper-2)}
+.status-card.warn .stamp-icon{background:var(--sol);color:var(--capim-deep)}
+.status-card.fail .stamp-icon{background:var(--alerta);color:var(--paper-2);border-color:var(--alerta)}
+.status-card h1{font-size:1.7rem;margin-bottom:10px}
+.status-card p{color:var(--ink-soft)}
+.status-card .btn{margin-top:18px}
+.status-card .status-logo{width:44px;height:44px;margin:0 auto 18px;border-radius:10px}
+
+/* =========================================================================
+   Responsivo
+   ========================================================================= */
+@media (max-width:860px){
+  .hero .container{grid-template-columns:1fr}
+  .ficha-card{transform:none;justify-self:center;max-width:420px}
+  .features-grid{grid-template-columns:repeat(2,1fr)}
+  .steps{grid-template-columns:1fr}
+  .plans{grid-template-columns:1fr}
+  .nav-links{display:none}
+}
+@media (max-width:520px){
+  .features-grid{grid-template-columns:1fr}
+  .hero-stats{gap:22px}
+}
