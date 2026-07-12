@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /sucesso.html
+Disallow: /pendente.html
+Disallow: /erro.html
+
+Sitemap: https://agrogestropro.com.br/sitemap.xml

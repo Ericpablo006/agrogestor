@@ -1,0 +1,12 @@
+# Cabeçalhos de segurança para hosts que leem este formato (Netlify, Cloudflare
+# Pages). Se o site for hospedado em outro lugar (Apache, Nginx, Vercel), estes
+# mesmos cabeçalhos precisam ser configurados na plataforma — meta tags no HTML
+# não conseguem aplicar X-Frame-Options nem Strict-Transport-Security.
+
+/*
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: geolocation=(), camera=(), microphone=(), payment=(self "https://www.mercadopago.com.br")
+  Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
+  Content-Security-Policy: default-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; script-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self' https://www.mercadopago.com.br https://mpago.la; upgrade-insecure-requests
